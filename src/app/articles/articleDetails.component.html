@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                    <a class="btn btn-primary" type="button" [routerLink]="['/articles']">Powrót</a>
+                    <a class="btn btn-info" type="button" (click)="editArticle()">Edytuj</a>
+                    <a class="btn btn-primary" type="button" (click)="saveArticle()" *ngIf='toggleEdit'>Zapisz</a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" *ngIf='!toggleEdit'>{{article?.title}}</h5>
+                    <input type="text" [(ngModel)]='article.title' class="w-100" *ngIf='toggleEdit'>
+                    <p class="card-text" *ngIf='!toggleEdit'>{{article?.body}}</p>
+                    <textarea class="mt-3" name="articleBody" id="" cols="149" rows="5" *ngIf='toggleEdit'>{{article?.body}}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

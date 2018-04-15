@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                    <a class="btn btn-primary" type="button" [routerLink]="['/projects']">Powrót</a>
+                    <a class="btn btn-info" type="button" (click)="editProject()">Edytuj</a>
+                    <a class="btn btn-primary" 
+                       type="button" 
+                       (click)="saveProject(project.id)" 
+                       *ngIf='toggleEdit'>Zapisz</a>
+                </div>
+                <div class="card-body">
+                    <p>Tytuł projektu</p>
+                    <h5 class="card-title" *ngIf='!toggleEdit'>{{project?.projectTitle}}</h5>
+                    <p *ngIf='!toggleEdit'>Autor projektu</p>
+                    <p class="card-text" *ngIf='!toggleEdit'>{{project?.projectAuthor}}</p>
+                    <p *ngIf='!toggleEdit'>Opis projektu</p>
+                    <p class="card-text" *ngIf='!toggleEdit'>{{project?.projectDescription}}</p>
+                    <form #ProjectForm="ngForm" autocomplete="off" *ngIf='toggleEdit' novalidate>
+                        <input id="ProjectTitle"
+                               name="ProjectTitle"
+                               class="w-100" 
+                               minlength="3" 
+                               [(ngModel)]='project.projectTitle' 
+                               #ProjectTitle="ngModel"
+                        >
+                        <div *ngIf="validateTitle" class="alert alert-danger mt-2">
+                            Tytuł jest wymagany.
+                        </div>
+                        <div *ngIf="ProjectTitle.invalid && (ProjectTitle.dirty || ProjectTitle.touched)"
+                            class="alert alert-danger mt-2">
+                            <div *ngIf="ProjectTitle.errors.minlength" class="alert alert-danger">
+                                Tytuł musi mieć przynajmniej 3 znaki.
+                            </div>
+                        </div>
+                        <p>Autor projektu</p>
+                        <input id="ProjectAuthor"
+                               name="ProjectAuthor"
+                               class="w-100" 
+                               minlength="3" 
+                               [(ngModel)]='project.projectAuthor' 
+                               #ProjectAuthor="ngModel"
+                        >
+                        <p>Opis projektu</p>
+                        <textarea class="mt-3" 
+                                  name="ProjectDescription" 
+                                  id="ProjectDescription" 
+                                  cols="149" 
+                                  rows="5" 
+                                  [(ngModel)]='project.projectDescription'>
+                        </textarea>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col-2">
+                        Projekty
+                    </div> 
+                    <div class="col-3">
+                      Filtruj: <input type="text" value=''>
+                    </div>
+                    <div class="col-1">
+                      <button class="btn btn-primary" [routerLink]="['/projects', 0]">Dodaj</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Tytuł</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor='let project of projects'>
+                            <th scope="row">{{project.id}}</th>
+                            <td>
+                              <a class="text-white" [routerLink]="['/projects', project.id]">{{project.projectTitle}}</a>
+                            </td>
+                            <td>
+                              <div class="btn-group">
+                                <button class="btn btn-secondary" (click)="deleteProject(project.id)">Usuń</button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

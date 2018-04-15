@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "login": "Leanne",
+      "password": "bret"
+    },
+    {
+      "login": "Leanne2",
+      "password": "bret2"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "body": "Kot ma Alę",
+      "postId": "1",
+      "id": 2
+    },
+    {
+      "body": "aaabbb",
+      "id": 3
+    },
+    {
+      "body": "Opis zapisał się do bazy. Hurra!",
+      "postId": "1",
+      "id": 4
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "tasks-grid": [
+    {
+      "id": 1,
+      "title": "Pierwsze zadanie"
+    },
+    {
+      "id": 2,
+      "title": "Drugie zadanie"
+    },
+    {
+      "title": "AAA",
+      "id": 3
+    },
+    {
+      "title": "BBB",
+      "id": 4
+    }
+  ],
+  "tasks": [
+    {
+      "title": "Pierwsze zadanie",
+      "id": 1,
+      "author": "Bolek",
+      "status": "Nowe",
+      "priority": "Niski",
+      "startDate": "March 18, 2010",
+      "startdate": "March 18, 2010",
+      "description": "Opis pierwszego zadania. Ciekawe czy zapisze się do bazy."
+    },
+    {
+      "id": 2,
+      "title": "Drugie zadanie",
+      "author": "Lolek",
+      "status": "W trakcie",
+      "priority": "Normalny"
+    },
+    {
+      "title": "AAA",
+      "author": "ddd",
+      "id": 3
+    },
+    {
+      "title": "BBB",
+      "author": "bbb",
+      "id": 4
+    }
+  ],
+  "tasks-comments": []
+}

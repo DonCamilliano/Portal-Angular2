@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                    <a class="btn btn-primary" type="button" [routerLink]="['/tasks']">Powrót</a>
+                    <a class="btn btn-info" type="button" (click)="editTask()">Edytuj</a>
+                    <a class="btn btn-primary" 
+                       type="button" 
+                       (click)="saveTask(task.id)" 
+                       *ngIf='toggleEdit'>Zapisz</a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" *ngIf='!toggleEdit'>{{task?.taskTitle}}</h5>
+                    <p class="card-text" *ngIf='!toggleEdit'>{{task?.taskDescription}}</p>
+                    <form #TaskForm="ngForm" autocomplete="off" *ngIf='toggleEdit' novalidate>
+                        <p>Tytuł</p>
+                        <input id="taskTitle"
+                               name="taskTitle"
+                               class="w-100" 
+                               minlength="3" 
+                               [(ngModel)]='task.taskTitle' 
+                               #taskTitle="ngModel"
+                        >
+                        <div *ngIf="validateTitle" class="alert alert-danger mt-2">
+                            Tytuł jest wymagany.
+                        </div>
+                        <div *ngIf="taskTitle.invalid && (taskTitle.dirty || taskTitle.touched)"
+                            class="alert alert-danger mt-2">
+                            <div *ngIf="taskTitle.errors.minlength" class="alert alert-danger">
+                                Tytuł musi mieć przynajmniej 3 znaki.
+                            </div>
+                        </div>
+                        <p>Opis</p>
+                        <textarea class="mt-3" 
+                                  name="TaskDescription" 
+                                  id="TaskDescription" 
+                                  cols="149" 
+                                  rows="5" 
+                                  [(ngModel)]='task.taskDescription'>
+                        </textarea>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Projekt</p>
+                                <div class="input-group mb-3">
+                                    <mat-form-field>
+                                        <mat-select placeholder="Wybierz">
+                                            <mat-option *ngFor="let project of projects" 
+                                                value=project.id>
+                                                {{project.projectTitle}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
