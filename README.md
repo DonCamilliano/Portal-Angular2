@@ -1,4 +1,11 @@
-# MyApp
+# MyApp - Portal-Angular2
+
+Portal coded using Angular CLI and jsonplaceholder (more info https://github.com/typicode/json-server).
+Project includes few modules (articles, Tasks, Projects). For now you can add, edit, delete items in
+modules. In future there will be added new functionalities like login page and authentication service,
+adding tasks to projects and few more.
+
+To run local API go to api folder and run 'json-server data.json --routes routes.json'.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
 
